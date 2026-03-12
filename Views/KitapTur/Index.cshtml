@@ -1,0 +1,29 @@
+﻿@model List<KitapTur>
+
+
+
+<a href="/KitapTur/Ekle" class="btn btn-sm btn-outline-success">Yeni Kitap Türü Ekle</a>
+<br>
+<br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Ad</th>
+                <th>Düzenle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var kitapTur in Model)
+            {
+                <tr>
+                    <td>@kitapTur.Id</td>
+                    <td>@kitapTur.Ad</td>
+                    <td><a href="/KitapTur/Duzenle/@kitapTur.Id" class="btn btn-sm btn-outline-warning">Düzenle</a></td>
+                    <td><a href="/KitapTur/Sil/@kitapTur.Id" class="btn btn-sm btn-outline-danger">Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>

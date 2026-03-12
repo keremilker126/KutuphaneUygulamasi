@@ -1,0 +1,90 @@
+<div class="container mt-4">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">
+                <i class="bi bi-arrow-left-right"></i> Kitap Ödünç Ver
+            </h5>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="KitapVer" asp-controller="Odunc" method="post">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Üye</label>
+                            <select name="UyeId" class="form-select" required>
+
+                                <option value="">Üye Seçiniz</option>
+
+                                @foreach (var uye in ViewBag.Uyeler)
+                                {
+                                    <option value="@uye.Id">@uye.Ad @uye.Soyad</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Kitap</label>
+
+                            <select name="KitapId" class="form-select" required>
+
+                                <option value="">Kitap Seçiniz</option>
+
+                                @foreach (var kitap in ViewBag.Kitaplar)
+                                {
+                                    <option value="@kitap.Id">@kitap.Ad</option>
+                                }
+
+                            </select>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Getirilmesi İstenen Tarih</label>
+
+                            <input 
+                                type="date"
+                                name="GetirmesiIstenenTarih"
+                                class="form-control"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-end gap-2 mt-3">
+
+                    <a asp-action="Index" asp-controller="Odunc" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left"></i> Geri
+                    </a>
+
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-check-lg"></i> Kitap Ver
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+﻿@model List<Kitap>
+
+
+<a href="/Kitap/Ekle" class="btn btn-outline-success">Yeni Kitap Ekle</a>
+<br>
+<br>
+<table class="table table-striped">
+    <thead>
+        <th>Id</th>
+        <th>Ad</th>
+        <th>ISBN</th>
+        <th>Sayfa Sayısı</th>
+        <th>Yayınevi Id</th>
+        <th>Yazarı Id</th>
+        <th>Tur Id</th>
+        <th>Duzenle</th>
+        <th>Sil</th>
+    </thead>
+    <tbody>
+        @foreach (var kitap in Model)
+        {
+            <tr>
+                <td>@kitap.Id</td>
+                <td>@kitap.Ad</td>
+                <td>@kitap.ISBN</td>
+                <td>@kitap.SayfaSayisi</td>
+                <td>@kitap.YayinEviId</td>
+                <td>@kitap.YazarId</td>
+                <td>@kitap.TurId</td>
+                <td><a href="/Kitap/Duzenle/@kitap.Id" class="btn btn-outline-warning">Düzenle</a></td>
+                <td><a href="/Kitap/Sil/@kitap.Id" class="btn btn-outline-danger">Sil</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

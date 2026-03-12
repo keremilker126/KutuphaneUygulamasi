@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kütüphane</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" type="image/x-icon" />
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <style>
+        body { min-height: 100vh; background-color: #f8f9fa; }
+        .sidebar { min-width: 260px; background: #212529; min-height: 100vh; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+        .nav-link { color: #dee2e6; border-radius: 0.5rem; margin-bottom: 5px; transition: 0.3s; }
+        .nav-link:hover, .nav-link.active { color: #fff; background: #0d6efd; }
+        .nav-link i { margin-right: 10px; }
+        .main-content { background: #fff; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+
+<div class="d-flex">
+    <nav class="sidebar p-4">
+        <h4 class="text-white mb-4 text-center"><i class="bi bi-book-half"></i> LibManager</h4>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item"><a href="/" class="nav-link active"><i class="bi bi-house-door"></i> Ana Sayfa</a></li>
+            <li><a href="/Kitap" class="nav-link"><i class="bi bi-journals"></i> Kitaplar</a></li>
+            <li><a href="/Yazar" class="nav-link"><i class="bi bi-person-badge"></i> Yazarlar</a></li>
+            <li><a href="/Uye" class="nav-link"><i class="bi bi-people"></i> Üyeler</a></li>
+            <li><a href="/KitapTur" class="nav-link"><i class="bi bi-tags"></i> Kitap Türleri</a></li>
+            <li><a href="/Ceza" class="nav-link"><i class="bi bi-exclamation-triangle"></i> Cezalar</a></li>
+            <li><a href="/Odunc" class="nav-link"><i class="bi bi-arrow-left-right"></i> Ödünç İşlemleri</a></li>
+            <li><a href="/YayinEvi" class="nav-link"><i class="bi bi-building"></i> Yayın Evleri</a></li>
+        </ul>
+    </nav>
+
+    <div class="flex-grow-1 p-4">
+        <div class="main-content p-4">
+            <header class="mb-4 pb-3 border-bottom">
+                <h3><i class="bi bi-speedometer2"></i> @ViewData["Title"]</h3>
+            </header>
+            <main>
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

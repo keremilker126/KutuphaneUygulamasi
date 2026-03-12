@@ -1,0 +1,39 @@
+﻿@model List<Odunc>
+
+<a href="/Odunc/KitapVer" class="btn btn-outline-success">Kitap Ver</a>
+<br>
+<br>
+<table class="table table-striped">
+
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Üye Id</th>
+            <th>Kitap Id</th>
+            <th>Verilme Tarihi</th>
+            <th>Getilmesi Gereken Tarih</th>
+            <th>Geri Getirme Tarihi</th>
+            <th>Durum</th>
+            <th>Kitabı Al</th>
+            <th>Sil</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var odunc in Model)
+        {
+            <tr>
+                <td>@odunc.Id</td>
+                <td>@odunc.UyeId</td>
+                <td>@odunc.KitapId</td>
+                <td>@odunc.VerilisTarihi.ToShortDateString()</td>
+                <td>@odunc.GetirmesiIstenenTarih.ToShortDateString()</td>
+                <td>@(odunc.TeslimTarihi.HasValue ? odunc.TeslimTarihi.Value.ToShortDateString() : "Henüz Getirilmedi")</td>
+                <td>@(odunc.Durum ? "Kitabı Getirdi" : "Kitabı Okuyor")</td>
+                <td><a asp-action="KitabiAl" asp-controller="Odunc" asp-route-id="@odunc.Id" class="btn btn-outline-primary">Kitabı Al</a></td>
+                <td><a href="/Odunc/Sil/@odunc.Id" class="btn btn-sm btn-outline-danger">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

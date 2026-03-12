@@ -1,0 +1,111 @@
+@model Kitap
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow">
+                
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">📚 Kitap Düzenle</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form asp-action="Duzenle" asp-controller="Kitap" method="post">
+
+                        <input type="hidden" name="Id" value="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Kitap Adı</label>
+                            <input type="text" name="Ad" class="form-control" value="@Model.Ad" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">ISBN</label>
+                            <input type="text" name="ISBN" class="form-control" value="@Model.ISBN" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Sayfa Sayısı</label>
+                            <input type="number" name="SayfaSayisi" class="form-control" value="@Model.SayfaSayisi" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Yayın Evi</label>
+                            <select name="YayinEviId" class="form-select" required>
+
+                                @foreach (var yayinEvi in ViewBag.YayinEvleri)
+                                {
+                                    if (yayinEvi.Id == Model.YayinEviId)
+                                    {
+                                        <option value="@yayinEvi.Id" selected>@yayinEvi.Ad</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@yayinEvi.Id">@yayinEvi.Ad</option>
+                                    }
+                                }
+
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Yazar</label>
+                            <select name="YazarId" class="form-select" required>
+
+                                @foreach (var yazar in ViewBag.Yazarlar)
+                                {
+                                    if (yazar.Id == Model.YazarId)
+                                    {
+                                        <option value="@yazar.Id" selected>@yazar.Ad</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@yazar.Id">@yazar.Ad</option>
+                                    }
+                                }
+
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Tür</label>
+                            <select name="TurId" class="form-select" required>
+
+                                @foreach (var tur in ViewBag.Turler)
+                                {
+                                    if (tur.Id == Model.TurId)
+                                    {
+                                        <option value="@tur.Id" selected>@tur.Ad</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@tur.Id">@tur.Ad</option>
+                                    }
+                                }
+
+                            </select>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+
+                            <a asp-action="Index" class="btn btn-secondary">
+                                ← Geri
+                            </a>
+
+                            <button type="submit" class="btn btn-success">
+                                💾 Değişiklikleri Kaydet
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

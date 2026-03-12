@@ -1,0 +1,30 @@
+﻿@model List<Ceza>
+
+
+<table class="table table-danger">
+
+<thead>
+    <tr>
+        <th>Id</th>
+        <th>Odünç Kitap Id</th>
+        <th>Tutar</th>
+        <th>Açıklama</th>
+        <th>Ödendi Mi?</th>
+        <th>Cezayı Bitir</th>
+
+    </tr>
+</thead>
+<tbody>
+    @foreach(var cezali in Model){
+    <tr>
+        <td>@cezali.Id</td>
+        <td>@cezali.OduncId</td>
+        <td>@cezali.Tutar</td>
+        <td>@cezali.Aciklama</td>
+        <td>@cezali.OdendiMi</td>
+        <td><a href="/Ceza/CezayiBitir/@cezali.Id" class="btn btn-outline-primary">Cezayı Bitir</a></td>
+
+    </tr>
+    }
+</tbody>
+</table>

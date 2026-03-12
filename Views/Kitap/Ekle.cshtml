@@ -1,0 +1,83 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow">
+
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">📚 Yeni Kitap Ekle</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form asp-action="Ekle" asp-controller="Kitap" method="post">
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Kitap Adı</label>
+                            <input type="text" name="Ad" class="form-control" placeholder="Kitap adını giriniz" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">ISBN</label>
+                            <input type="text" name="ISBN" class="form-control" placeholder="ISBN numarası" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Sayfa Sayısı</label>
+                            <input type="number" name="SayfaSayisi" class="form-control" placeholder="Sayfa sayısı" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Yayın Evi</label>
+                            <select name="YayinEviId" class="form-select" required>
+                                <option value="">-- Yayın Evi Seçiniz --</option>
+                                @foreach (var yayinEvi in ViewBag.YayinEvleri)
+                                {
+                                    <option value="@yayinEvi.Id">@yayinEvi.Ad</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Yazar</label>
+                            <select name="YazarId" class="form-select" required>
+                                <option value="">-- Yazar Seçiniz --</option>
+                                @foreach (var yazar in ViewBag.Yazarlar)
+                                {
+                                    <option value="@yazar.Id">@yazar.Ad</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Tür</label>
+                            <select name="TurId" class="form-select" required>
+                                <option value="">-- Tür Seçiniz --</option>
+                                @foreach (var tur in ViewBag.Turler)
+                                {
+                                    <option value="@tur.Id">@tur.Ad</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+
+                            <a asp-action="Index" asp-controller="Kitap" class="btn btn-secondary">
+                                ← Listeye Dön
+                            </a>
+
+                            <button type="submit" class="btn btn-success">
+                                ➕ Kitap Ekle
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model List<Yazar>
+
+
+
+<a href="/Yazar/Ekle" class="btn btn-outline-success">Ekle</a>
+<div class="row">
+
+
+@foreach(var yazar in Model){
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">@yazar.Ad @yazar.Soyad</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Yazar</h6>
+    <p class="card-text">@yazar.Biyografi</p>
+    <a href="/Yazar/Duzenle/@yazar.Id" class="card-link btn btn-outline-warning">Düzenle</a>
+    <a href="/Yazar/Sil/@yazar.Id" class="card-link btn btn-outline-danger">Sil</a>
+  </div>
+</div>
+}
+
+
+</div>
+
+<style>
+  .card{
+    margin: 10px;
+  }
+</style>

@@ -1,0 +1,30 @@
+﻿@model List<YayinEvi>
+
+
+<a href="/YayinEvi/Ekle" class="btn btn-sm btn-outline-success">Yeni Yayın Evi Ekle</a>
+<br>
+<br>
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Adres</th>
+        <th>Düzenle</th>
+        <th>Sil</th>
+    </tr>
+</thead>
+<tbody>
+    @foreach(var yayinEvi in Model)
+    {
+        <tr>
+            <td>@yayinEvi.Id</td>
+            <td>@yayinEvi.Ad</td>
+            <td>@yayinEvi.Adres</td>
+            <td><a href="/YayinEvi/Duzenle/@yayinEvi.Id" class="btn btn-sm btn-outline-warning">Düzenle</a></td>
+            <td><a href="/YayinEvi/Sil/@yayinEvi.Id" class="btn btn-sm btn-outline-danger">Sil</a></td>
+        </tr>
+    }
+</tbody>
+
+</table>
