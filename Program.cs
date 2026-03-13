@@ -4,7 +4,27 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();// Veritabanı bağlantısı için DbContext'i ekleyin
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        // JSON serialization ayarları: camelCase property isimleri
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+        // Gerekirse indentation ekle (development için)
+        options.JsonSerializerOptions.WriteIndented = builder.Environment.IsDevelopment();
+    });
+
+// CORS yapılandırması: Tüm origin'lere izin ver (geliştirme için)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("abc", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+// Veritabanı bağlantısı için DbContext'i ekleyin
 builder.Services.AddDbContext<KutuphaneDbContext>(options =>
     options.UseSqlite("Data Source=Kutuphane.db"));
 var app = builder.Build();
@@ -18,7 +38,12 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
+
+// CORS middleware'ini ekle
+app.UseCors("abc");
 
 app.UseAuthorization();
 

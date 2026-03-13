@@ -1,8 +1,66 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Kütüphane";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+        <h1 class="display-4">📚 Kütüphane Yönetim Sistemi</h1>
+        <p class="text-muted">Kitapları, kategorileri ve ödünç işlemlerini kolayca yönetin</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3>📖</h3>
+                    <h5 class="card-title">Kitaplar</h5>
+                    <p class="card-text">Kütüphanedeki tüm kitapları görüntüleyin.</p>
+                    <a href="/Kitap" class="btn btn-primary">Git</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3>🏷️</h3>
+                    <h5 class="card-title">Kategoriler</h5>
+                    <p class="card-text">Kitap kategorilerini yönetin.</p>
+                    <a href="/KitapTur" class="btn btn-success">Git</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3>✍️</h3>
+                    <h5 class="card-title">Yazarlar</h5>
+                    <p class="card-text">Yazar bilgilerini görüntüleyin.</p>
+                    <a href="/Yazar" class="btn btn-warning">Git</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow h-100 text-center">
+                <div class="card-body">
+                    <h3>🔄</h3>
+                    <h5 class="card-title">Ödünç İşlemleri</h5>
+                    <p class="card-text">Kitap ödünç alma ve iade işlemleri.</p>
+                    <a href="/Odunc" class="btn btn-danger">Git</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-5 text-muted">
+        <small>© 2026 Kütüphane Otomasyonu</small>
+    </div>
+
 </div>

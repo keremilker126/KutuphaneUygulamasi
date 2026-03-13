@@ -16,14 +16,15 @@ public class OduncController : Controller
         _logger = logger;
         _context = context;
     }
+    
     public async Task<IActionResult> Index()
     {
         var oduncler = await _context.Oduncler.ToListAsync();
         
 
         return View(oduncler);
-
     }
+
     [HttpGet]
     public async Task<IActionResult> KitapVer()
     {
@@ -47,9 +48,6 @@ public class OduncController : Controller
         return RedirectToAction("Index");
     }
 
-
-
-
     public async Task<IActionResult> Sil(int id)
     {
         var odunc = await _context.Oduncler.FindAsync(id);
@@ -57,17 +55,13 @@ public class OduncController : Controller
         {
             return NotFound();
         }
-
         _context.Oduncler.Remove(odunc);
         await _context.SaveChangesAsync();
-
         return RedirectToAction("Index");
     }
-    
 
     public async Task<IActionResult> KitabiAl(int id)
     {
-
         var odunc = await _context.Oduncler.FindAsync(id);
         if(odunc==null){
             return NotFound();
@@ -76,15 +70,7 @@ public class OduncController : Controller
         odunc.Durum = true;
         _context.Oduncler.Update(odunc);
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index");
-        
-
-        
+        return RedirectToAction("Index");        
     }
-
-
-
-
-
 
 }
