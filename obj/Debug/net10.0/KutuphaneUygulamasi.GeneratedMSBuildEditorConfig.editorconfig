@@ -1,121 +1,131 @@
 is_global = true
 build_property.TargetFramework = net10.0
+build_property.TargetFramework = net10.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
 build_property.RootNamespace = KutuphaneUygulamasi
 build_property.RootNamespace = KutuphaneUygulamasi
-build_property.ProjectDir = /home/kerem149/KutuphaneUygulamasi/
+build_property.ProjectDir = C:\Users\kerem\Desktop\KutuphaneUygulamasi\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/kerem149/KutuphaneUygulamasi
+build_property.MSBuildProjectDirectory = C:\Users\kerem\Desktop\KutuphaneUygulamasi
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Ceza/CezayiBitir.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2V6YS9DZXpheWlCaXRpci5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Ceza/Aciklama.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2V6YVxBY2lrbGFtYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Ceza/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2V6YS9JbmRleC5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Ceza/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2V6YVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Kitap/Duzenle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2l0YXAvRHV6ZW5sZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/KitapTur/Duzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2l0YXBUdXJcRHV6ZW5sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Kitap/Ekle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2l0YXAvRWtsZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/KitapTur/Ekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2l0YXBUdXJcRWtsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Kitap/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2l0YXAvSW5kZXguY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/KitapTur/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2l0YXBUdXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/KitapTur/Duzenle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2l0YXBUdXIvRHV6ZW5sZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Kitap/Duzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2l0YXBcRHV6ZW5sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/KitapTur/Ekle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2l0YXBUdXIvRWtsZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Kitap/Ekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2l0YXBcRWtsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/KitapTur/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvS2l0YXBUdXIvSW5kZXguY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Kitap/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2l0YXBcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Odunc/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2R1bmMvSW5kZXguY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Odunc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R1bmNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Odunc/KitapVer.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2R1bmMvS2l0YXBWZXIuY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Odunc/KitapVer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2R1bmNcS2l0YXBWZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Uye/Duzenle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXllL0R1emVubGUuY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Uye/Duzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXER1emVubGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Uye/Ekle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXllL0VrbGUuY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Uye/Ekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXEVrbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Uye/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXllL0luZGV4LmNzaHRtbA==
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Uye/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/YayinEvi/Duzenle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvWWF5aW5FdmkvRHV6ZW5sZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/YayinEvi/Duzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWF5aW5FdmlcRHV6ZW5sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/YayinEvi/Ekle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvWWF5aW5FdmkvRWtsZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/YayinEvi/Ekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWF5aW5FdmlcRWtsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/YayinEvi/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvWWF5aW5FdmkvSW5kZXguY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/YayinEvi/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWF5aW5FdmlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Yazar/Duzenle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvWWF6YXIvRHV6ZW5sZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Yazar/Duzenle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWF6YXJcRHV6ZW5sZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Yazar/Ekle.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvWWF6YXIvRWtsZS5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Yazar/Ekle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWF6YXJcRWtsZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Yazar/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvWWF6YXIvSW5kZXguY3NodG1s
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Yazar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWWF6YXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/kerem149/KutuphaneUygulamasi/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ouv6xq8xji
+[C:/Users/kerem/Desktop/KutuphaneUygulamasi/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-sm4iyp557y

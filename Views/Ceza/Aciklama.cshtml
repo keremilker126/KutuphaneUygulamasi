@@ -1,0 +1,43 @@
+@{
+    ViewData["Title"] = "Ceza Açıklaması";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-exclamation-triangle"></i> Ceza Açıklaması
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">Dikkat!</h5>
+                        <p>Aşağıda belirtilen ceza ile ilgili detaylar yer almaktadır.</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h5>Açıklama:</h5>
+                        <div class="border rounded p-3 bg-light">
+                            @ViewBag.Aciklama
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <a href="@Url.Action("Index", "Ceza")" class="btn btn-primary">
+                            <i class="fas fa-arrow-left"></i> Ceza Listesine Dön
+                        </a>
+                        <a href="@Url.Action("Index", "Home")" class="btn btn-secondary">
+                            <i class="fas fa-home"></i> Ana Sayfa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+}

@@ -1,39 +1,108 @@
 ﻿@model List<Odunc>
 
-<a href="/Odunc/KitapVer" class="btn btn-outline-success">Kitap Ver</a>
-<br>
-<br>
-<table class="table table-striped">
+<div class="container mt-4">
 
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Üye Id</th>
-            <th>Kitap Id</th>
-            <th>Verilme Tarihi</th>
-            <th>Getilmesi Gereken Tarih</th>
-            <th>Geri Getirme Tarihi</th>
-            <th>Durum</th>
-            <th>Kitabı Al</th>
-            <th>Sil</th>
-        </tr>
+    <div class="card shadow-lg border-0">
 
-    </thead>
+        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">📖 Ödünç Kitaplar</h4>
 
-    <tbody>
-        @foreach (var odunc in Model)
-        {
-            <tr>
-                <td>@odunc.Id</td>
-                <td>@odunc.UyeId</td>
-                <td>@odunc.KitapId</td>
-                <td>@odunc.VerilisTarihi.ToShortDateString()</td>
-                <td>@odunc.GetirmesiIstenenTarih.ToShortDateString()</td>
-                <td>@(odunc.TeslimTarihi.HasValue ? odunc.TeslimTarihi.Value.ToShortDateString() : "Henüz Getirilmedi")</td>
-                <td>@(odunc.Durum ? "Kitabı Getirdi" : "Kitabı Okuyor")</td>
-                <td><a asp-action="KitabiAl" asp-controller="Odunc" asp-route-id="@odunc.Id" class="btn btn-outline-primary">Kitabı Al</a></td>
-                <td><a href="/Odunc/Sil/@odunc.Id" class="btn btn-sm btn-outline-danger">Sil</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+            <a href="/Odunc/KitapVer" class="btn btn-light btn-sm">
+                ➕ Kitap Ver
+            </a>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-hover table-striped align-middle">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Üye</th>
+                        <th>Kitap</th>
+                        <th>Veriliş Tarihi</th>
+                        <th>Teslim Edilmesi Gereken</th>
+                        <th>Teslim Tarihi</th>
+                        <th>Durum</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var odunc in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                <span class="badge bg-secondary">
+                                    @odunc.Id
+                                </span>
+                            </td>
+
+                            <td>
+                                @odunc.UyeId
+                            </td>
+
+                            <td>
+                                @odunc.KitapId
+                            </td>
+
+                            <td>
+                                @odunc.VerilisTarihi.ToShortDateString()
+                            </td>
+
+                            <td>
+                                @odunc.GetirmesiIstenenTarih.ToShortDateString()
+                            </td>
+
+                            <td>
+                                @(odunc.TeslimTarihi.HasValue 
+                                    ? odunc.TeslimTarihi.Value.ToShortDateString() 
+                                    : "Henüz Getirilmedi")
+                            </td>
+
+                            <td>
+                                @if (odunc.Durum)
+                                {
+                                    <span class="badge bg-success">
+                                        Teslim Edildi
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        Okunuyor
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+
+                                <a asp-action="KitabiAl"
+                                   asp-controller="Odunc"
+                                   asp-route-id="@odunc.Id"
+                                   class="btn btn-sm btn-primary">
+                                    📥 Kitabı Al
+                                </a>
+
+                                <a href="/Odunc/Sil/@odunc.Id"
+                                   class="btn btn-sm btn-danger">
+                                    🗑 Sil
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

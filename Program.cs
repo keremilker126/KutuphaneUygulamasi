@@ -16,7 +16,7 @@ builder.Services.AddControllersWithViews()
 // CORS yapılandırması: Tüm origin'lere izin ver (geliştirme için)
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("abc", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
@@ -43,7 +43,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 // CORS middleware'ini ekle
-app.UseCors("abc");
+app.UseCors("AllowAll");
 
 app.UseAuthorization();
 

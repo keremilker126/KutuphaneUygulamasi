@@ -17,40 +17,60 @@ public class CezaController : Controller
     }
     public async Task<IActionResult> Index()
     {
-        foreach (var kitapAlan in await _context.Oduncler.ToListAsync())
+        int tutar=350;
+        // Teslim edilmemiş kitaplar için ceza kontrolü (duplicate önlemek için)
+        var teslimEdilmeyenler = await _context.Oduncler
+            .Where(o => o.TeslimTarihi == null && o.GetirmesiIstenenTarih < DateTime.Now)
+            .ToListAsync();
+
+        foreach (var kitapAlan in teslimEdilmeyenler)
         {
-            
-            TimeSpan fark;
-            fark = kitapAlan.TeslimTarihi.Value - kitapAlan.GetirmesiIstenenTarih;
-            if (fark.TotalDays>0)
+            // Zaten ceza kesilmiş mi kontrol et
+            bool cezaVarMi = await _context.Cezalilar.AnyAsync(c => c.OduncId == kitapAlan.Id);
+            if (!cezaVarMi)
             {
-                
-                Ceza cezali =new Ceza();
-                cezali.OduncId= kitapAlan.Id;
-                cezali.Tutar=200;
-                cezali.OdendiMi=false;
-                cezali.Aciklama = $"kişi kitabı getirilmesi gereken {kitapAlan.GetirmesiIstenenTarih} tarihte getrimeyip {kitapAlan.TeslimTarihi} tarihte getirmiştir bu yuzden {cezali.Tutar}TL para cezasına tabi tutulmuştur";
-                await _context.Cezalilar.AddAsync(cezali);
-                await _context.SaveChangesAsync();
-                
+                TimeSpan fark = DateTime.Now - kitapAlan.GetirmesiIstenenTarih;
+                if (fark.TotalDays > 0)
+                {
+                    Ceza cezali = new Ceza
+                    {
+                        OduncId = kitapAlan.Id,
+                        Tutar = tutar,
+                        OdendiMi = false,
+                        Aciklama = $"Kitap getirilmesi gereken {kitapAlan.GetirmesiIstenenTarih:dd/MM/yyyy} tarihinde getirilmemiş. {tutar} TL ceza kesilmiştir."
+                    };
+                    await _context.Cezalilar.AddAsync(cezali);
+                }
             }
-
-            
         }
+        await _context.SaveChangesAsync();
 
-        var cezalilar = await _context.Cezalilar.ToListAsync();
+        // Cezaları listele (detaylar için Include ekle)
+        var cezalilar = await _context.Cezalilar
+            .Include(c => c.Odunc)
+                .ThenInclude(o => o.Uye)
+            .Include(c => c.Odunc)
+                .ThenInclude(o => o.Kitap)
+            .ToListAsync();
 
         return View(cezalilar);
     }
     public async Task<IActionResult> CezayiBitir(int id)
     {
-        var cezali=await _context.Cezalilar.FindAsync(id);
-        if (cezali==null)
+
+        var cezali = await _context.Cezalilar.FindAsync(id);
+        if (cezali == null)
         {
             return NotFound();
         }
-        _context.Cezalilar.Remove(cezali);
+        cezali.OdendiMi = true;
+        _context.Cezalilar.Update(cezali);
         await _context.SaveChangesAsync();
+        return RedirectToAction("Index");
+    }
+    public async Task<IActionResult> Aciklama(string aciklama)
+    {
+        ViewBag.Aciklama = aciklama;
         return View();
     }
 

@@ -1,30 +1,111 @@
 ﻿@model List<Ceza>
 
+<div class="container mt-4">
 
-<table class="table table-danger">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">📋 Ceza Listesi</h4>
+        </div>
 
-<thead>
-    <tr>
-        <th>Id</th>
-        <th>Odünç Kitap Id</th>
-        <th>Tutar</th>
-        <th>Açıklama</th>
-        <th>Ödendi Mi?</th>
-        <th>Cezayı Bitir</th>
+        <div class="card-body">
 
-    </tr>
-</thead>
-<tbody>
-    @foreach(var cezali in Model){
-    <tr>
-        <td>@cezali.Id</td>
-        <td>@cezali.OduncId</td>
-        <td>@cezali.Tutar</td>
-        <td>@cezali.Aciklama</td>
-        <td>@cezali.OdendiMi</td>
-        <td><a href="/Ceza/CezayiBitir/@cezali.Id" class="btn btn-outline-primary">Cezayı Bitir</a></td>
+            <table class="table table-hover table-striped align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Üye</th>
+                        <th>Kitap</th>
+                        <th>Teslim Tarihi</th>
+                        <th>Tutar</th>
+                        <th>Açıklama</th>
+                        <th>Durum</th>
+                        <th>İşlem</th>
+                    </tr>
+                </thead>
 
-    </tr>
-    }
-</tbody>
-</table>
+                <tbody>
+
+                    @foreach (var cezali in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                <span class="badge bg-secondary">
+                                    @cezali.Id
+                                </span>
+                            </td>
+
+                            <td>
+                                @(cezali.Odunc?.Uye?.Ad ?? "Bilinmiyor")
+                            </td>
+
+                            <td>
+                                <strong>
+                                    @(cezali.Odunc?.Kitap?.Ad ?? "Bilinmiyor")
+                                </strong>
+                            </td>
+
+                            <td>
+                                @cezali.Odunc?.GetirmesiIstenenTarih.ToString("dd/MM/yyyy")
+                            </td>
+
+                            <td>
+                                <span class="text-danger fw-bold">
+                                    @cezali.Tutar TL
+                                </span>
+                            </td>
+
+                            <td>
+                                <a class="btn btn-sm btn-outline-danger"
+                                   asp-controller="Ceza"
+                                   asp-action="Aciklama"
+                                   asp-route-aciklama="@cezali.Aciklama">
+                                    Gör
+                                </a>
+                            </td>
+
+                            <td>
+                                @if (cezali.OdendiMi)
+                                {
+                                    <span class="badge bg-success">
+                                        Ödendi
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">
+                                        Ödenmedi
+                                    </span>
+                                }
+                            </td>
+
+                            <td>
+
+                                @if (!cezali.OdendiMi)
+                                {
+                                    <a href="/Ceza/CezayiBitir/@cezali.Id"
+                                       class="btn btn-sm btn-primary">
+                                        ✔ Cezayı Bitir
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-success fw-bold">
+                                        Tamamlandı
+                                    </span>
+                                }
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

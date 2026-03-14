@@ -16,11 +16,11 @@ public class OduncController : Controller
         _logger = logger;
         _context = context;
     }
-    
+
     public async Task<IActionResult> Index()
     {
         var oduncler = await _context.Oduncler.ToListAsync();
-        
+
 
         return View(oduncler);
     }
@@ -28,8 +28,32 @@ public class OduncController : Controller
     [HttpGet]
     public async Task<IActionResult> KitapVer()
     {
-        ViewBag.Kitaplar = await _context.Kitaplar.ToListAsync();
-        ViewBag.Uyeler = await _context.Uyeler.ToListAsync();
+        // Aktif ödünçlerdeki kitap ID'lerini al (teslim edilmemiş olanlar)
+        var loanedBookIds = await _context.Oduncler
+            .Where(o => !o.Durum)
+            .Select(o => o.KitapId)
+            .ToListAsync();
+
+        // Ödünç alınmamış kitapları al
+        var availableBooks = await _context.Kitaplar
+            .Where(k => !loanedBookIds.Contains(k.Id))
+            .ToListAsync();
+
+        // Ödenmemiş cezaları olan üye ID'lerini al
+        var penalizedUyeIds = await _context.Cezalilar
+            .Where(c => !c.OdendiMi)
+            .Select(c => c.Odunc.UyeId)
+            .Distinct()
+            .ToListAsync();
+
+        // Cezalı olmayan üyeleri al
+        var availableUyeler = await _context.Uyeler
+            .Where(u => !penalizedUyeIds.Contains(u.Id))
+            .ToListAsync();
+
+        ViewBag.Kitaplar = availableBooks;
+        ViewBag.Uyeler = availableUyeler;
+
         return View();
     }
 
@@ -39,7 +63,8 @@ public class OduncController : Controller
         odunc.VerilisTarihi = DateTime.Now;
         odunc.TeslimTarihi = null;
         odunc.Durum = false;
-        if(odunc==null){
+        if (odunc == null)
+        {
             return NotFound();
         }
         await _context.Oduncler.AddAsync(odunc);
@@ -63,14 +88,15 @@ public class OduncController : Controller
     public async Task<IActionResult> KitabiAl(int id)
     {
         var odunc = await _context.Oduncler.FindAsync(id);
-        if(odunc==null){
+        if (odunc == null)
+        {
             return NotFound();
         }
         odunc.TeslimTarihi = DateTime.Now;
         odunc.Durum = true;
         _context.Oduncler.Update(odunc);
         await _context.SaveChangesAsync();
-        return RedirectToAction("Index");        
+        return RedirectToAction("Index");
     }
 
 }

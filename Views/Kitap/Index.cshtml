@@ -1,36 +1,93 @@
 ﻿@model List<Kitap>
 
+<div class="container mt-4">
 
-<a href="/Kitap/Ekle" class="btn btn-outline-success">Yeni Kitap Ekle</a>
-<br>
-<br>
-<table class="table table-striped">
-    <thead>
-        <th>Id</th>
-        <th>Ad</th>
-        <th>ISBN</th>
-        <th>Sayfa Sayısı</th>
-        <th>Yayınevi Id</th>
-        <th>Yazarı Id</th>
-        <th>Tur Id</th>
-        <th>Duzenle</th>
-        <th>Sil</th>
-    </thead>
-    <tbody>
-        @foreach (var kitap in Model)
-        {
-            <tr>
-                <td>@kitap.Id</td>
-                <td>@kitap.Ad</td>
-                <td>@kitap.ISBN</td>
-                <td>@kitap.SayfaSayisi</td>
-                <td>@kitap.YayinEviId</td>
-                <td>@kitap.YazarId</td>
-                <td>@kitap.TurId</td>
-                <td><a href="/Kitap/Duzenle/@kitap.Id" class="btn btn-outline-warning">Düzenle</a></td>
-                <td><a href="/Kitap/Sil/@kitap.Id" class="btn btn-outline-danger">Sil</a></td>
-            </tr>
-        }
+    <div class="card shadow-lg border-0">
 
-    </tbody>
-</table>
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <h4 class="mb-0">📚 Kitap Listesi</h4>
+
+            <a href="/Kitap/Ekle" class="btn btn-light btn-sm">
+                ➕ Yeni Kitap Ekle
+            </a>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-hover table-striped align-middle">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Kitap Adı</th>
+                        <th>ISBN</th>
+                        <th>Sayfa</th>
+                        <th>Yayınevi</th>
+                        <th>Yazar</th>
+                        <th>Tür</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var kitap in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                <span class="badge bg-secondary">
+                                    @kitap.Id
+                                </span>
+                            </td>
+
+                            <td>
+                                <strong>@kitap.Ad</strong>
+                            </td>
+
+                            <td>
+                                @kitap.ISBN
+                            </td>
+
+                            <td>
+                                @kitap.SayfaSayisi
+                            </td>
+
+                            <td>
+                                @kitap.YayinEviId
+                            </td>
+
+                            <td>
+                                @kitap.YazarId
+                            </td>
+
+                            <td>
+                                @kitap.TurId
+                            </td>
+
+                            <td>
+
+                                <a href="/Kitap/Duzenle/@kitap.Id"
+                                   class="btn btn-sm btn-warning">
+                                    ✏ Düzenle
+                                </a>
+
+                                <a href="/Kitap/Sil/@kitap.Id"
+                                   class="btn btn-sm btn-danger">
+                                    🗑 Sil
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
