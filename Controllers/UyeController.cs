@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using KutuphaneUygulamasi.Models;
 using Microsoft.EntityFrameworkCore;
 using KutuphaneUygulamasi.Data;
+using System.Threading.Tasks;
 
 namespace KutuphaneUygulamasi.Controllers;
 
@@ -23,57 +24,61 @@ public class UyeController : Controller
         return View(uyeler);
     }
     [HttpGet]
-    public IActionResult Ekle()
+    public async Task<IActionResult> Ekle()
     {
+        ViewBag.sinif = await _context.Siniflar.ToListAsync();
         return View();
     }
 
     [HttpPost]
     public async Task<IActionResult> Ekle(Uye uye)
     {
-        if (uye==null)
+        if (uye == null)
         {
-            return NotFound();    
+            return NotFound();
         }
+        ViewBag.sinif = await _context.Siniflar.ToListAsync();
+
         await _context.Uyeler.AddAsync(uye);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
-        
+
     }
-   
+
     public async Task<IActionResult> Sil(int id)
     {
 
         var uye = await _context.Uyeler.FindAsync(id);
-        if (uye==null)
+        if (uye == null)
         {
-            return NotFound();    
+            return NotFound();
         }
         _context.Uyeler.Remove(uye);
         await _context.SaveChangesAsync();
         return RedirectToAction("Index");
-        
+
     }
     [HttpGet]
     public async Task<IActionResult> Duzenle(int id)
     {
-
         var uye = await _context.Uyeler.FindAsync(id);
-        if (uye==null)
+        if (uye == null)
         {
-            return NotFound();    
+            return NotFound();
         }
+
+        ViewBag.sinif = await _context.Siniflar.ToListAsync(); // 🔥 EKLE
+
         return View(uye);
-        
     }
 
     [HttpPost]
 
     public async Task<IActionResult> Duzenle(Uye uye)
     {
-        if (uye==null)
+        if (uye == null)
         {
-            return NotFound();    
+            return NotFound();
         }
         _context.Uyeler.Update(uye);
         await _context.SaveChangesAsync();

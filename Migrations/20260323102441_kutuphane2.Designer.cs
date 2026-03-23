@@ -3,6 +3,7 @@ using System;
 using KutuphaneUygulamasi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KutuphaneUygulamasi.Migrations
 {
     [DbContext(typeof(KutuphaneDbContext))]
-    partial class KutuphaneDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260323102441_kutuphane2")]
+    partial class kutuphane2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");

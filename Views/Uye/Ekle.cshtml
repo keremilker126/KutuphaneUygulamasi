@@ -16,22 +16,12 @@
 
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-bold">Ad</label>
-                        <input 
-                            type="text"
-                            name="Ad"
-                            class="form-control"
-                            placeholder="Üyenin adı"
-                            required />
+                        <input type="text" name="Ad" class="form-control" placeholder="Üyenin adı" required />
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-bold">Soyad</label>
-                        <input 
-                            type="text"
-                            name="Soyad"
-                            class="form-control"
-                            placeholder="Üyenin soyadı"
-                            required />
+                        <input type="text" name="Soyad" class="form-control" placeholder="Üyenin soyadı" required />
                     </div>
 
                 </div>
@@ -40,24 +30,34 @@
 
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-bold">E-posta</label>
-                        <input 
-                            type="email"
-                            name="Eposta"
-                            class="form-control"
-                            placeholder="ornek@mail.com" />
+                        <input type="email" name="Eposta" class="form-control" placeholder="ornek@mail.com" />
                     </div>
     
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-bold">Telefon</label>
-                        <input 
-                            type="tel"
-                            name="Telefon"
-                            class="form-control"
-                            placeholder="05xx xxx xx xx" />
+                        <input type="tel" name="Telefon" class="form-control" placeholder="05xx xxx xx xx" />
                     </div>
 
                 </div>
-    
+
+                <!-- SINIF -->
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Sınıf</label>
+                    <select name="SinifAdi" class="form-control">
+                        <option value="">Seçiniz</option>
+
+                        @foreach (var i in ViewBag.sinif)
+                        {
+                            <option value="@($"{i.Ad}")">
+                                @($"{i.Ad}")
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <!-- KayitTarihi otomatik -->
+                <input type="hidden" name="KayitTarihi" value="@DateTime.Now" />
+
                 <div class="d-flex justify-content-end gap-2 mt-3">
 
                     <a asp-action="Index" class="btn btn-outline-secondary">

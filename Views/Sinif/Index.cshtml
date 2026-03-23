@@ -1,0 +1,28 @@
+@model List<Sinif>
+
+<div class="container mt-4">
+    <h2>Sınıf Listesi</h2>
+    <p><a asp-action="Ekle" class="btn btn-primary">Yeni Sınıf Ekle</a></p>
+    
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th>Sınıf Adı</th>
+                <th>Seviye/Bölüm</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>@item.Ad</td>
+                <td>@item.Seviye</td>
+                <td>
+                    <a asp-action="Duzenle" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Düzenle</a>
+                    <a asp-action="Sil" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

@@ -20,6 +20,7 @@ public class KutuphaneDbContext : DbContext
     public DbSet<Uye> Uyeler { get; set; }
     public DbSet<Odunc> Oduncler { get; set; }
     public DbSet<Ceza> Cezalilar { get; set; }
+    public DbSet<Sinif> Siniflar { get; set; }
 
 
 
