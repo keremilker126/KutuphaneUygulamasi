@@ -1,22 +1,31 @@
 @model Sinif
 
 <div class="container mt-4">
-    <h4>Yeni Sınıf Oluştur</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Ekle" method="post">
-                <div class="form-group mb-3">
-                    <label class="control-label">Sınıf Adı</label>
-                    <input asp-for="Ad" class="form-control" placeholder="Örn: 10-A" />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-plus-square me-2"></i>Yeni Sınıf Oluştur</h5>
                 </div>
-                <div class="form-group mb-3">
-                    <label class="control-label">Seviye</label>
-                    <input asp-for="Seviye" class="form-control" placeholder="Örn: 9" />
+                <div class="card-body p-4">
+                    <form asp-action="Ekle" method="post">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Sınıf Adı</label>
+                            <input asp-for="Ad" class="form-control form-control-lg" placeholder="Örn: 10-A" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Seviye</label>
+                            <input asp-for="Seviye" class="form-control form-control-lg" placeholder="Örn: 10" />
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary me-md-2">İptal</a>
+                            <button type="submit" class="btn btn-success px-4">
+                                <i class="bi bi-save"></i> Kaydet
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-success">Kaydet</button>
-                <a asp-action="Index" class="btn btn-secondary">İptal</a>
-            </form>
+            </div>
         </div>
     </div>
 </div>

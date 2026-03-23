@@ -66,7 +66,7 @@ public class SinifController : Controller
     // SİLME
     public async Task<IActionResult> Sil(int? id)
     {
-        var silinecek = await _context.Siniflar.FindAsync();
+        var silinecek = await _context.Siniflar.FindAsync(id);
         if (silinecek==null)
         {
             return NotFound();

@@ -3,7 +3,7 @@ using KutuphaneUygulamasi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-[Route("api/SinifApi")]
+[Route("api/Sinif")]
 [ApiController]
 public class SinifApiController : ControllerBase
 {
@@ -36,7 +36,7 @@ public class SinifApiController : ControllerBase
 
     // POST: api/SinifApi
     [HttpPost]
-    public async Task<IActionResult> Create(Sinif sinif)
+    public async Task<IActionResult> Ekle(Sinif sinif)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
@@ -49,7 +49,7 @@ public class SinifApiController : ControllerBase
 
     // PUT: api/SinifApi/5
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(int id, Sinif sinif)
+    public async Task<IActionResult> Duzenle(int id, Sinif sinif)
     {
         if (id != sinif.Id)
             return BadRequest();
@@ -65,7 +65,7 @@ public class SinifApiController : ControllerBase
 
     // DELETE: api/SinifApi/5
     [HttpDelete("{id}")]
-    public async Task<IActionResult> Delete(int id)
+    public async Task<IActionResult> Sil(int id)
     {
         var sinif = await _context.Siniflar.FindAsync(id);
 
